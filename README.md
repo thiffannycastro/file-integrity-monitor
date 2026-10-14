@@ -17,6 +17,7 @@ This project was developed as a hands-on learning exercise in Python programming
 - Detect removed files.
 - Save file hashes in a JSON baseline.
 - Process files in chunks to avoid loading entire files into memory.
+- Update the saved baseline using the `--update-baseline` option.
 
 ## Requirements
 
@@ -29,6 +30,13 @@ This project was developed as a hands-on learning exercise in Python programming
 2. Open a terminal in the project directory.
 3. Add test files to the `monitored_files/` directory.
 4. Run the program:
+To update the baseline with the current state of the monitored files, run:
+
+```bash
+python file_hash.py --update-baseline
+```
+
+**Warning:** Review detected changes before updating the baseline. Updating it replaces the previous reference and may make existing changes harder to identify.
 
 ```bash
 python file_hash.py
