@@ -18,6 +18,7 @@ This project was developed as a hands-on learning exercise in Python programming
 - Save file hashes in a JSON baseline.
 - Process files in chunks to avoid loading entire files into memory.
 - Update the saved baseline using the `--update-baseline` option.
+- Handle file scanning errors and invalid baseline data.
 
 ## Requirements
 
@@ -28,7 +29,7 @@ This project was developed as a hands-on learning exercise in Python programming
 
 1. Clone or download this repository.
 2. Open a terminal in the project directory.
-3. Add test files to the `monitored_files/` directory.
+3. Add files to the `monitored_files/` directory.
 4. Run the program:
 
 ```bash
@@ -41,20 +42,13 @@ On subsequent runs, the program compares the current file hashes with the saved 
 
 ### Updating the Baseline
 
-To update the baseline with the current state of the monitored files, run:
+After reviewing the reported changes, you can update the saved baseline to match the current state of the monitored files:
 
 ```bash
 python file_hash.py --update-baseline
 ```
 
-**Warning:** Review detected changes before updating the baseline. Updating it replaces the previous reference and may make existing changes harder to identify.
-```bash
-python file_hash.py
-```
-
-On the first run, the program creates `baseline.json` containing the hashes of the monitored files.
-
-On subsequent runs, the program compares the current file hashes with the saved baseline and reports any detected changes.
+**Warning:** Updating the baseline replaces the previous reference. Changes that have been recorded in the new baseline will no longer be reported as new changes during subsequent scans.
 
 ## Example Output
 
