@@ -30,6 +30,17 @@ This project was developed as a hands-on learning exercise in Python programming
 2. Open a terminal in the project directory.
 3. Add test files to the `monitored_files/` directory.
 4. Run the program:
+
+```bash
+python file_hash.py
+```
+
+On the first run, the program creates `baseline.json` containing the hashes of the monitored files.
+
+On subsequent runs, the program compares the current file hashes with the saved baseline and reports any detected changes.
+
+### Updating the Baseline
+
 To update the baseline with the current state of the monitored files, run:
 
 ```bash
@@ -37,7 +48,6 @@ python file_hash.py --update-baseline
 ```
 
 **Warning:** Review detected changes before updating the baseline. Updating it replaces the previous reference and may make existing changes harder to identify.
-
 ```bash
 python file_hash.py
 ```
