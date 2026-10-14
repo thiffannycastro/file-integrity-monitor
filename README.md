@@ -1,162 +1,92 @@
+# File Integrity Monitor
 
+A Python-based cybersecurity project that uses SHA-256 hashing to detect changes in files.
 
-\# File Integrity Monitor
+## Overview
 
+The File Integrity Monitor scans a directory and calculates a SHA-256 hash for each file. It compares the current hashes against a previously saved baseline to identify added, modified, and removed files.
 
+This project was developed as a hands-on learning exercise in Python programming, file integrity monitoring, and cybersecurity fundamentals.
 
-A Python project that uses SHA-256 hashes to detect changes in files.
+## Features
 
+- Calculate SHA-256 hashes for files.
+- Scan directories recursively, including subdirectories.
+- Detect newly added files.
+- Detect modified files.
+- Detect removed files.
+- Save file hashes in a JSON baseline.
+- Process files in chunks to avoid loading entire files into memory.
 
+## Requirements
 
-\## Overview
+- Python 3.10 or later.
+- No third-party packages required.
 
+## How to Run
 
+1. Clone or download this repository.
+2. Open a terminal in the project directory.
+3. Add test files to the `monitored_files/` directory.
+4. Run the program:
 
-The File Integrity Monitor scans a directory and calculates a SHA-256
+```bash
+python file_hash.py
+```
 
-hash for each file. It compares the current hashes with a previously
+On the first run, the program creates `baseline.json` containing the hashes of the monitored files.
 
-saved baseline to identify added, modified, and removed files.
+On subsequent runs, the program compares the current file hashes with the saved baseline and reports any detected changes.
 
+## Example Output
 
-
-This project was created as a hands-on learning exercise in Python
-
-programming and cybersecurity fundamentals.
-
-
-
-\## Features
-
-
-
-\- Calculate SHA-256 hashes.
-
-\- Scan files in a directory, including subdirectories.
-
-\- Detect added files.
-
-\- Detect modified files.
-
-\- Detect removed files.
-
-\- Save a baseline in JSON format.
-
-
-
-\## Requirements
-
-
-
-\- Python 3.10 or later
-
-\- No third-party packages required
-
-
-
-\## How to Run
-
-
-
-1\. Clone or download this repository.
-
-2\. Open a terminal in the project directory.
-
-3\. Add test files to `monitored\_files/`.
-
-4\. Run the program:
-
-
-
-&#x20;  ```bash
-
-&#x20;  python file\_hash.py
-
-&#x20;  ```
-
-
-
-On the first run, the program creates `baseline.json`.
-
-On subsequent runs, it compares the current files with the saved baseline.
-
-
-
-\## Example Output
-
-
+**First run:**
 
 ```text
-
 Baseline created.
-
 Recorded 1 file(s).
-
 ```
 
-
-
-If no files have changed:
-
-
+**No changes detected:**
 
 ```text
-
 OK: No changes detected.
-
 ```
 
-
-
-If a file is modified:
-
-
+**Modified file:**
 
 ```text
-
 MODIFIED: sample.txt
-
 ```
 
+**Added file:**
 
+```text
+ADDED: new_file.txt
+```
 
-\## Technologies
+**Removed file:**
 
+```text
+REMOVED: sample.txt
+```
 
+## Technologies
 
-\- Python
+- Python
+- SHA-256
+- JSON
+- Git
+- GitHub
 
-\- SHA-256
+## Limitations
 
-\- JSON
+The baseline is stored locally and is not protected against unauthorized modification. An attacker who can modify both the monitored files and the baseline may evade detection.
 
-\- Git and GitHub
+This project is intended for educational purposes and is not a replacement for a production-grade file integrity monitoring solution.
 
+## Author
 
+**Thiffanny Castro**
 
-\## Limitations
-
-
-
-The baseline is stored locally and is not protected against unauthorized
-
-modification. An attacker who can modify both the monitored files and
-
-the baseline may evade detection.
-
-
-
-This is a learning project and is not intended to replace a
-
-production-grade file integrity monitoring solution.
-
-
-
-\## Author
-
-
-
-Thiffanny Castro
-
-
-
+[GitHub Profile](https://github.com/thiffannycastro)
